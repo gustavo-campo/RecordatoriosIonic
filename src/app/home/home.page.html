@@ -1,12 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
-</ion-content>
+    <ion-toolbar color="primary">
+      <ion-title>
+        Lista de tareas + Firebase
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+   
+  <ion-content>
+    <ng-container *ngIf="!todos || todos.length == 0">
+        <div *ngFor="let n of [0,1,2]" padding>
+          <ion-skeleton-text></ion-skeleton-text>
+          <p>
+            <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+          </p>
+        </div>
+      </ng-container>
+      
+      <div *ngFor="let item of todos">
+          <div class="own-card">
+              <div class="own-container">
+                <h3><b>{{ item.title }}</b></h3> 
+                <p>{{ item.task }}</p>
+                <small><p><b>Prioridad: {{ item.priority }}</b> Creado en: {{ item.createdAt | date:'short' }}</p></small>
+                    <div class="own-btn-group">
+                      <button class="edit-link" [routerLink]="['/details', item.id]">Editar</button>
+                      <button class="done-link" (click)="removeConfirm(item)">Finalizar</button>
+                    </div>
+                </div>
+            </div>
+      </div>
+    
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button routerLink="/details" routerDirection="forward">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+   
+  </ion-content>
