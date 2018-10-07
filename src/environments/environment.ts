@@ -11,15 +11,16 @@
  * because it will have performance impact when throw error
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
-
+/* INSERT YOUR OWN FIREBASE CREDENTIALS
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDbVxcBz8qUHXXAg546MjUmXvKmdPUBMe4",
-    authDomain: "fireapp-ca034.firebaseapp.com",
-    databaseURL: "https://fireapp-ca034.firebaseio.com",
-    projectId: "fireapp-ca034",
-    storageBucket: "fireapp-ca034.appspot.com",
-    messagingSenderId: "496121182567"
+    apiKey: "xxxx",
+    authDomain: "xxxx",
+    databaseURL: "xxxx",
+    projectId: "xxxx",
+    storageBucket: "xxxx",
+    messagingSenderId: "xxxx"
   }
 };
+*/
